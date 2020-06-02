@@ -12,12 +12,12 @@ import java.net.MalformedURLException;
 
 
 @Component
-public class NameScoringCLI {
+public class NameScoringCliApp {
 
     @Autowired
     private CumulativeScoreService scoreService;
 
-    public NameScoringCLI(CumulativeScoreService scoreService) {
+    public NameScoringCliApp(CumulativeScoreService scoreService) {
         this.scoreService = scoreService;
     }
 
@@ -31,7 +31,7 @@ public class NameScoringCLI {
                 throw new MissingArgumentException("no value supplied for file path");
             }
 
-            final long score = ctx.getBean(NameScoringCLI.class).scoreService.compute(new File(cmd.getOptionValue("file")).toURI().toURL());
+            final long score = ctx.getBean(NameScoringCliApp.class).scoreService.compute(new File(cmd.getOptionValue("file")).toURI().toURL());
             System.out.println("Input file: " + cmd.getOptionValue("file"));
             System.out.println("Total score: " + score);
 
