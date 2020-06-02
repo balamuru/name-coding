@@ -38,7 +38,7 @@ public class RankedCumulativeScoreService implements CumulativeScoreService{
                 totalScore.addAndGet(sortedNameScore);
            }
         });
-        System.err.println("Result: " + totalScore);
+
         return totalScore.get();
     }
 
