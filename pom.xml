@@ -6,8 +6,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>name-coding</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+
+    <url>https://github.com/balamuru/name-coding</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.11</maven.compiler.source>
