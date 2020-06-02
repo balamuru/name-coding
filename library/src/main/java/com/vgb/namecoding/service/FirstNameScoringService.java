@@ -1,4 +1,4 @@
-package com.vgb.namecoding.service.namescoring;
+package com.vgb.namecoding.service;
 
 import org.springframework.stereotype.Service;
 
