@@ -1,13 +1,13 @@
-package com.example.multimodulelibrary;
+package com.vgb.namecoding;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MultiModuleLibraryApplication {
+public class NameCodingLibraryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MultiModuleLibraryApplication.class, args);
+		SpringApplication.run(NameCodingLibraryApplication.class, args);
 	}
 
 }

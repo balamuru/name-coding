@@ -1,10 +1,10 @@
-package com.example.multimodulelibrary;
+package com.vgb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MultiModuleLibraryApplicationTests {
+class NameCodingLibraryApplicationTests {
 
 	@Test
 	void contextLoads() {
