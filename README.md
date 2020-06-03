@@ -1,6 +1,6 @@
 
 # name-coding
-## Build Status (hosted on https://codefresh.io/)
+## Build Status 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/balamuru/NameCodingPipeline%2Fname-coding?type=cf-1)]( https%3A%2F%2Fg.codefresh.io%2Fpublic%2Faccounts%2Fbalamuru%2Fpipelines%2Fnew%2F5ed76e90ccb58a9eeea8392c)
 
 
@@ -34,20 +34,36 @@ _**Future Requirements**_
     * The input is a URL, so as long as the input text can be expressed as an URL, the library should work
 * Should be flexible to support first and last names
     * The Pattern Delimiters and ReaderService are all interface driven and can support alternate implementation         
-
+* Should be production-grade
+    * Unit tests available
+    * Spring wired CLI
+    * Spring wired test configuration
+    * Published on Github
+    * GitHub code connected to remote CI/CD pipeline (hosted on https://codefresh.io/)
 
 ## Assumptions
 * All Data is in a single text line 
+* All names in the input are unique (no duplicates)
 * No non-alphanumerics in the data set (apart fro whitespace, comma and quotes)
 * Each name entry is prefixed and suffixed by ```"```
 
-
+## Approach
+* Read string and split into names
+* Insert the data in a SortedSet
+* Stream the sorted data
+* For each datum, calculate the word score and multiply by its rank to determine its score
+* Accumulate the score 
 ## Algorithm 
-![](docs/algorithm.png)
+![algorithm](docs/algorithm.png)
+
+## Core Call Flow
+![sequence](docs/sequence.png)
 
 ## Libs Used
 * JUnit
 * Apache Commons CLI
+* SLF4J
 * Spring core
+* Maven assembly plugin
 
 
