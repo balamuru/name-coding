@@ -43,7 +43,7 @@ public class DelimitedSortingReaderService implements ReaderService {
         //define a collector backed by a sorted data structure
         final Collector<String, ?, Collection<String>> nameSetCollector = Collectors.toCollection(TreeSet::new);
         //transform the line of text into a list of names using the pattern
-        return Arrays.stream(pattern.split(nameString)).parallel().map(s1 -> {
+        return Arrays.stream(pattern.split(nameString)).map(s1 -> {
             //trim outside the quotes and inside the quotes too
             final String t1 = s1.trim();
             return t1.substring(1, t1.length() - 1).trim();

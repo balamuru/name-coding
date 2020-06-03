@@ -98,9 +98,9 @@ _**Future Requirements**_
 
 ### Complexity analysis as a function of number of records
 For n records
-* Insert + Sort: n*O(log(n)) (the data is inserted in sorted order)
+* Insert + Sort: n*O(log(n)) (the data is sorted into a tree set at insertion time)
 * Sort: O(1) (no-op, sorting performed at insert)
-* Scoring: O(n) (just iterate across records, calculate score and )
+* Scoring: O(n) (just iterate across records, calculate score and accumulate)
 
 ## Libs Used
 * JUnit
@@ -108,5 +108,14 @@ For n records
 * SLF4J
 * Spring core
 * Maven assembly plugin
+
+## Possible Enhancements:
+* Parallelize the final ranking by 
+  * iterating the sorted list in order
+  * determining the tuple (order, word) and processing these in parallel
+  * collecting the results
+* Organizing the FileScoringService implementation as a set of chainable jobs, rather than just a facade for the calculation
+* Using streaming approach for the final ranking allowing scale-out
+   
 
 
