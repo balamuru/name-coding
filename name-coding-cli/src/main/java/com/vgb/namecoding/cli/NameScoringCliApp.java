@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 
 
 /**
- * CLI Application
+ * CLI Application. It accepts a fully qualified path to a file
  */
 @Component
 public class NameScoringCliApp {
@@ -44,7 +44,8 @@ public class NameScoringCliApp {
             }
 
             //invoke the score calculation
-            final long score = ctx.getBean(NameScoringCliApp.class).scoreService.compute(new File(cmd.getOptionValue("file")).toURI().toURL());
+            final CumulativeScoreService scoreService = ctx.getBean(NameScoringCliApp.class).scoreService;
+            final long score = scoreService.compute(new File(cmd.getOptionValue("file")).toURI().toURL());
             System.out.println("Input file: " + cmd.getOptionValue("file"));
             System.out.println("Total score: " + score);
 
