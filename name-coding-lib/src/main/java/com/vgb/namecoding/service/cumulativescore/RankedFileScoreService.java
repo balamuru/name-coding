@@ -6,13 +6,14 @@ import com.vgb.namecoding.service.sorting.SortingService;
 
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.logging.Logger;
 
 /**
  * This implementation of @{@link FileScoreService} works by multiplying the rank of
  * a name with the score of the name itself
  */
 public class RankedFileScoreService implements FileScoreService {
-
+    final Logger logger = Logger.getLogger(this.getClass().getName());
 
     private ReaderService readerService;
 

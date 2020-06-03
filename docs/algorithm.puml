@@ -5,8 +5,7 @@ title Name Coding Algorithm
 start
 :Read Sample File;
 :Parse Sample Data by delimiter;
-:Collect raw data in an unsorted list;
-:Feed the unsorted list to a TreeSet, sorting it in the process;
+:Collect raw name data in a sorted collection;
 
 repeat
   :Select sorted name item;

@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.TreeSet;
 
 /**
- * A @{@link java.util.TreeSet} backed implementation of @{@link SortingService}
+ * A @{@link java.util.TreeSet} backed implementation of @{@link SortingService}. This is not needed if the input is
+ * pre-sorted. In such a situation, use @{@link PassThroughSortingService}
  */
 public class TreeSetSortingService implements SortingService<String> {
     @Override

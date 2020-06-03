@@ -2,12 +2,12 @@ package com.vgb.namecoding.cli;
 
 import com.vgb.namecoding.service.cumulativescore.FileScoreService;
 import com.vgb.namecoding.service.cumulativescore.RankedFileScoreService;
-import com.vgb.namecoding.service.reader.DelimitedReaderService;
+import com.vgb.namecoding.service.reader.DelimitedSortingReaderService;
 import com.vgb.namecoding.service.reader.ReaderService;
 import com.vgb.namecoding.service.scoring.FirstNameScoringService;
 import com.vgb.namecoding.service.scoring.NameScoringService;
+import com.vgb.namecoding.service.sorting.PassThroughSortingService;
 import com.vgb.namecoding.service.sorting.SortingService;
-import com.vgb.namecoding.service.sorting.TreeSetSortingService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,12 +26,12 @@ public class AppConfiguration {
 
     @Bean
     public ReaderService readerService(Pattern pattern) {
-        return new DelimitedReaderService(pattern);
+        return new DelimitedSortingReaderService(pattern);
     }
 
     @Bean
     public SortingService<String> sortingService() {
-        return new TreeSetSortingService();
+        return new PassThroughSortingService();
     }
 
     @Bean
