@@ -1,10 +1,9 @@
 # name-coding
 TODO: documentation
 
-## Requirements
+## Problem Statement
 
-## Algorithm / Approach
-
+## Algorithm 
 
 ## Assumptions
 
