@@ -2,9 +2,46 @@
 # name-coding
 ## Build Status 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/balamuru/NameCodingPipeline%2Fname-coding?type=cf-1)]( https%3A%2F%2Fg.codefresh.io%2Fpublic%2Faccounts%2Fbalamuru%2Fpipelines%2Fnew%2F5ed76e90ccb58a9eeea8392c)
+## Problem Summary
+Create an application that accepts a list of names and outputs an aggregated score 
+
+## Local Build
+* ```mvn install```
+* A fat jar ```name-coding-cli-<version>-jar-with-dependencies.jar```containing all the library dependencies will be produced at the local m2 repository. 
+eg
+```
+vinayb@carbon ~/.m2/repository/com/vgb $ tree  --prune -hP *.jar
+.
+├── [4.0K]  name-coding-cli
+│   └── [4.0K]  1.0-SNAPSHOT
+│       ├── [5.1K]  name-coding-cli-1.0-SNAPSHOT.jar //CLI with no dependencies (mvn can be configured not to produce this)
+│       └── [5.4M]  name-coding-cli-1.0-SNAPSHOT-jar-with-dependencies.jar //The fat jar application will all dependancies included
+└── [4.0K]  name-coding-lib
+    └── [4.0K]  1.0-SNAPSHOT 
+        └── [ 11K]  name-coding-lib-1.0-SNAPSHOT.jar //library that can be re-used by other applications
 
 
-## Problem Statement
+```
+
+## CI/CD Build
+* Running on https://codefresh.io/
+* Can be configured to deliver jars to artifacts if needed
+
+## Usage
+#### Syntax
+```
+usage: java -jar <cli-jar-name>.jar
+    --file <arg>   fully qualified path to the names input file
+```
+
+#### Example
+```
+$ java -jar name-coding-cli-1.0-SNAPSHOT-jar-with-dependencies.jar --file /home/vinayb/Downloads/sample-large.txt 
+Input file: /home/vinayb/Downloads/sample-large.txt
+Total score: 871198282
+```
+
+## Detailed Problem Statement
 _Create a command line utility that will compute a score for a list of first names.
 The list of names will be provided as a text file. The full path to the names file will be specified as a command line argument. The names file will contain a single line of quoted, comma-separated names. A small sample of data can be found at the end of this document and a full sample file (names.txt) is attached.
 To score a list of names, you must sort it alphabetically and sum the individual scores for all the names. To score a name, sum the alphabetical value of each letter (A=1, B=2, C=3, etc...) and multiply the sum by the name’s position in the list (1-based)._
@@ -54,6 +91,11 @@ _**Future Requirements**_
 * For each datum, calculate the word score and multiply by its rank to determine its score
 * Accumulate the score 
 ## Algorithm 
+### Complexity analysis as a function of number of records
+For n records
+* Insert + Sort: n*O(log(n)) (the data is inserted in sorted order)
+* Sort: O(1) (no-op, sorting performed at insert)
+* Scoring: O(n) (just iterate across records, calculate score and )
 ![algorithm](docs/algorithm.png)
 
 ## Core Call Flow

@@ -42,13 +42,15 @@ public class RankedFileScoreService implements FileScoreService {
         //2. sort data
 
         logger.info("Launching computation");
-        sortingService.sort(readerService.read(url)).iterator().forEachRemaining(name -> {
+        sortingService.sort(readerService.read(url))
+                .iterator()
+                .forEachRemaining(name -> {
             {
                 if (logger.isDebugEnabled()) {
                     logger.debug("Going to score word: " + name);
                 }
 
-                //for each item of the sorted dataset, .. calculate its sorted score
+                //3. for each item of the sorted dataset, .. calculate its sorted score
                 final long sortedNameScore = index.incrementAndGet() * nameScoringService.score(name);
                 //accumulate the total score
                 totalScore.addAndGet(sortedNameScore);
