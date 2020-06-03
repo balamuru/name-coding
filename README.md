@@ -91,15 +91,16 @@ _**Future Requirements**_
 * For each datum, calculate the word score and multiply by its rank to determine its score
 * Accumulate the score 
 ## Algorithm 
+![algorithm](docs/algorithm.png)
+
+### Core Call Flow
+![sequence](docs/sequence.png)
+
 ### Complexity analysis as a function of number of records
 For n records
 * Insert + Sort: n*O(log(n)) (the data is inserted in sorted order)
 * Sort: O(1) (no-op, sorting performed at insert)
 * Scoring: O(n) (just iterate across records, calculate score and )
-![algorithm](docs/algorithm.png)
-
-## Core Call Flow
-![sequence](docs/sequence.png)
 
 ## Libs Used
 * JUnit
