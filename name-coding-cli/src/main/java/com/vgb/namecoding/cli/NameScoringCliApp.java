@@ -1,6 +1,6 @@
 package com.vgb.namecoding.cli;
 
-import com.vgb.namecoding.service.cumulativescore.CumulativeScoreService;
+import com.vgb.namecoding.service.cumulativescore.FileScoreService;
 import org.apache.commons.cli.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -18,13 +18,13 @@ import java.net.MalformedURLException;
 public class NameScoringCliApp {
 
     @Autowired
-    private CumulativeScoreService scoreService;
+    private FileScoreService scoreService;
 
     /**
      * Constructor
      * @param scoreService score service
      */
-    public NameScoringCliApp(CumulativeScoreService scoreService) {
+    public NameScoringCliApp(FileScoreService scoreService) {
         this.scoreService = scoreService;
     }
 
@@ -44,7 +44,7 @@ public class NameScoringCliApp {
             }
 
             //invoke the score calculation
-            final CumulativeScoreService scoreService = ctx.getBean(NameScoringCliApp.class).scoreService;
+            final FileScoreService scoreService = ctx.getBean(NameScoringCliApp.class).scoreService;
             final long score = scoreService.compute(new File(cmd.getOptionValue("file")).toURI().toURL());
             System.out.println("Input file: " + cmd.getOptionValue("file"));
             System.out.println("Total score: " + score);

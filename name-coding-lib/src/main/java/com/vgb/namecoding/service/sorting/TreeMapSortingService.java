@@ -2,7 +2,6 @@ package com.vgb.namecoding.service.sorting;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**

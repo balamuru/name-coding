@@ -8,10 +8,10 @@ import java.net.URL;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * This implementation of @{@link CumulativeScoreService} works by multiplying the rank of
+ * This implementation of @{@link FileScoreService} works by multiplying the rank of
  * a name with the score of the name itself
  */
-public class RankedCumulativeScoreService implements CumulativeScoreService{
+public class RankedFileScoreService implements FileScoreService {
 
 
     private ReaderService readerService;
@@ -29,7 +29,7 @@ public class RankedCumulativeScoreService implements CumulativeScoreService{
      * @param sortingService sorting service
      * @param nameScoringService scoring service
      */
-    public RankedCumulativeScoreService(ReaderService readerService, SortingService<String> sortingService, NameScoringService nameScoringService) {
+    public RankedFileScoreService(ReaderService readerService, SortingService<String> sortingService, NameScoringService nameScoringService) {
         this.readerService = readerService;
         this.sortingService = sortingService;
         this.nameScoringService = nameScoringService;

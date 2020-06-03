@@ -16,12 +16,10 @@
     <url>https://github.com/balamuru/name-coding</url>
 
     <properties>
-        <spring.version>5.2.6.RELEASE</spring.version>
         <commons-cli.version>1.4</commons-cli.version>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>

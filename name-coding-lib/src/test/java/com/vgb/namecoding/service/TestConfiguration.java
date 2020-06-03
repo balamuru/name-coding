@@ -1,4 +1,4 @@
-package com.vgb.namecoding.cli;
+package com.vgb.namecoding.service;
 
 import com.vgb.namecoding.service.cumulativescore.FileScoreService;
 import com.vgb.namecoding.service.cumulativescore.RankedFileScoreService;
@@ -14,10 +14,10 @@ import org.springframework.context.annotation.Configuration;
 import java.util.regex.Pattern;
 
 /**
- * Configuration class
+ * Test Configuration class
  */
 @Configuration
-public class AppConfiguration {
+public class TestConfiguration {
 
     @Bean
     public Pattern nameSplitterPattern() {

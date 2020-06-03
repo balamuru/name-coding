@@ -1,12 +1,7 @@
 package com.vgb.namecoding.cli;
 
-import com.vgb.namecoding.service.cumulativescore.CumulativeScoreService;
-import com.vgb.namecoding.service.cumulativescore.RankedCumulativeScoreService;
 import com.vgb.namecoding.service.reader.DelimitedReaderService;
-import com.vgb.namecoding.service.reader.ReaderService;
 import com.vgb.namecoding.service.scoring.FirstNameScoringService;
-import com.vgb.namecoding.service.scoring.NameScoringService;
-import com.vgb.namecoding.service.sorting.SortingService;
 import org.junit.Assert;
 import org.junit.Test;
 
