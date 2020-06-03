@@ -11,16 +11,28 @@ import java.io.File;
 import java.net.MalformedURLException;
 
 
+/**
+ * CLI Applicatin
+ */
 @Component
 public class NameScoringCliApp {
 
     @Autowired
     private CumulativeScoreService scoreService;
 
+    /**
+     * Constructor
+     * @param scoreService score service
+     */
     public NameScoringCliApp(CumulativeScoreService scoreService) {
         this.scoreService = scoreService;
     }
 
+    /**
+     * Main method
+     * @param args command line args
+     * @throws Exception if something unexpected goes wrong
+     */
     public static void main(String[] args) throws Exception {
         final Options options = prepareOptions();
         final HelpFormatter helpFormatter = new HelpFormatter();
@@ -31,6 +43,7 @@ public class NameScoringCliApp {
                 throw new MissingArgumentException("no value supplied for file path");
             }
 
+            //invoke the score calculation
             final long score = ctx.getBean(NameScoringCliApp.class).scoreService.compute(new File(cmd.getOptionValue("file")).toURI().toURL());
             System.out.println("Input file: " + cmd.getOptionValue("file"));
             System.out.println("Total score: " + score);

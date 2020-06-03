@@ -2,7 +2,7 @@ package com.vgb.namecoding.cli;
 
 import com.vgb.namecoding.service.cumulativescore.CumulativeScoreService;
 import com.vgb.namecoding.service.cumulativescore.RankedCumulativeScoreService;
-import com.vgb.namecoding.service.reader.CSVReaderService;
+import com.vgb.namecoding.service.reader.DelimitedReaderService;
 import com.vgb.namecoding.service.reader.ReaderService;
 import com.vgb.namecoding.service.scoring.FirstNameScoringService;
 import com.vgb.namecoding.service.scoring.NameScoringService;
@@ -13,6 +13,9 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.regex.Pattern;
 
+/**
+ * Configuration class
+ */
 @Configuration
 public class AppConfiguration {
 
@@ -23,7 +26,7 @@ public class AppConfiguration {
 
     @Bean
     public ReaderService readerService(Pattern pattern) {
-        return new CSVReaderService(pattern);
+        return new DelimitedReaderService(pattern);
     }
 
     @Bean
