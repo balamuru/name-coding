@@ -1,0 +1,21 @@
+@startuml
+
+title Name Coding Algorithm
+
+start
+:Read Sample File;
+:Parse Sample Data by delimiter;
+:Collect raw data in an unsorted list;
+:Feed the unsorted list to a TreeSet, sorting it in the process;
+
+repeat
+  :Select sorted name item;
+  :Calculate name score;
+  :Multiply name score by word rank;
+  :Accumulate the ranked score;
+repeat while (repeat for all items in the set)
+:Return ranked score;
+
+stop
+
+@enduml

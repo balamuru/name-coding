@@ -7,7 +7,7 @@ import com.vgb.namecoding.service.reader.ReaderService;
 import com.vgb.namecoding.service.scoring.FirstNameScoringService;
 import com.vgb.namecoding.service.scoring.NameScoringService;
 import com.vgb.namecoding.service.sorting.SortingService;
-import com.vgb.namecoding.service.sorting.TreeMapSortingService;
+import com.vgb.namecoding.service.sorting.TreeSetSortingService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,7 +31,7 @@ public class TestConfiguration {
 
     @Bean
     public SortingService<String> sortingService() {
-        return new TreeMapSortingService();
+        return new TreeSetSortingService();
     }
 
     @Bean

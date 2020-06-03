@@ -40,10 +40,11 @@ public class RankedFileScoreService implements FileScoreService {
     public long compute(URL url) throws Exception {
         final AtomicLong index = new AtomicLong(0);
         final AtomicLong totalScore = new AtomicLong(0);
-        //get the sorted set
+        //1. read data
+        //2. sort
         sortingService.sort(readerService.read(url)).iterator().forEachRemaining(name -> {
             {
-                //for each item of the sorted set, .. calculate its sorted score
+                //for each item of the sorted dataset, .. calculate its sorted score
                 final long sortedNameScore = index.incrementAndGet() * nameScoringService.score(name);
                 //accumulate the total score
                 totalScore.addAndGet(sortedNameScore);

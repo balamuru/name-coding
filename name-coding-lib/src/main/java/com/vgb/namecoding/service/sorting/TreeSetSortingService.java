@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.TreeSet;
 
 /**
- * A @{@link java.util.TreeMap} backed implementation of @{@link SortingService}
+ * A @{@link java.util.TreeSet} backed implementation of @{@link SortingService}
  */
-public class TreeMapSortingService implements SortingService<String> {
+public class TreeSetSortingService implements SortingService<String> {
     @Override
     public Collection <String> sort(Collection <String> unsortedCollection) {
         //create a new tree set
