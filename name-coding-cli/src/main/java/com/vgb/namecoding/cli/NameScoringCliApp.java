@@ -12,7 +12,7 @@ import java.net.MalformedURLException;
 
 
 /**
- * CLI Applicatin
+ * CLI Application
  */
 @Component
 public class NameScoringCliApp {
@@ -50,13 +50,12 @@ public class NameScoringCliApp {
 
         } catch (ParseException | MalformedURLException e) {
             printHelp(options, helpFormatter);
-            System.exit(1);
         }
 
     }
 
     private static void printHelp(Options options, HelpFormatter helpFormatter) {
-        helpFormatter.printHelp("java -jar App.jar", options);
+        helpFormatter.printHelp("java -jar <cli-jar-name>.jar", options);
     }
 
 
