@@ -1,5 +1,9 @@
 package com.vgb.namecoding.service.sorting;
 
+import com.vgb.namecoding.service.reader.DelimitedSortingReaderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Collection;
 
 /**
@@ -12,8 +16,11 @@ import java.util.Collection;
  * use extra CPU cycles or memory to re-sort it
  */
 public class PassThroughSortingService implements SortingService<String> {
+    private static Logger logger = LoggerFactory.getLogger(PassThroughSortingService.class);
+
     @Override
     public Collection<String> sort(Collection<String> unsortedCollection) {
+        logger.info("pass through sorting, input is expected to be pre-sorted");
         return unsortedCollection;
     }
 }
