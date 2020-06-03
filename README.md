@@ -3,7 +3,8 @@ TODO: documentation
 
 ## Requirements
 
-## Algorithm
+## Algorithm / Approach
+
 
 ## Assumptions
 
