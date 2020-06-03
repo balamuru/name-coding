@@ -1,5 +1,5 @@
 # name-coding
-TODO: documentation
+TODO: documentation.
 
 ## Problem Statement
 
