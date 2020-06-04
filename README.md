@@ -79,7 +79,15 @@ For n records
 * Spring core
 * Maven assembly plugin
 
-## Possible Enhancements:
+## Sample output
+```
+$ java -jar name-coding-cli-1.0-SNAPSHOT-jar-with-dependencies.jar --file /home/vinayb/Downloads/sample-large.txt 
+Input file: /home/vinayb/Downloads/sample-large.txt
+Total score: 871198282
+```
+
+
+## Possible Future Enhancements:
 * Containerize the CLI application so the executing environment does need to provide a JRE
 * Parallelize the final ranking by 
   * iterating the sorted list in order
