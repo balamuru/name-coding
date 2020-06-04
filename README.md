@@ -1,53 +1,15 @@
 
 # name-coding
+
+## QuickStart
+See [here](docs/quickstart.md) for instructions on building and execution
+
 ## Build Status 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/balamuru/NameCodingPipeline%2Fname-coding?type=cf-1)]( https%3A%2F%2Fg.codefresh.io%2Fpublic%2Faccounts%2Fbalamuru%2Fpipelines%2Fnew%2F5ed76e90ccb58a9eeea8392c)
 
 ## Problem Summary
 The name-coding-cli application accepts a list of names and outputs an aggregated score 
 The underlying name-coding-lib is designed to be reused
-
-## QuickStart
-* Download or Clone Code from https://github.com/balamuru/name-coding
-
-* Build the executable
-* ```mvn install```
-* A fat jar ```name-coding-cli-<version>-jar-with-dependencies.jar```containing all the library dependencies will be produced at the local m2 repository. 
-eg
-```
-vinayb@carbon ~/.m2/repository/com/vgb $ tree  --prune -hP *.jar
-.
-├── [4.0K]  name-coding-cli
-│   └── [4.0K]  1.0-SNAPSHOT
-│       ├── [5.1K]  name-coding-cli-1.0-SNAPSHOT.jar //CLI with no dependencies (mvn can be configured not to produce this)
-│       └── [5.4M]  name-coding-cli-1.0-SNAPSHOT-jar-with-dependencies.jar //The fat jar application will all dependancies included
-└── [4.0K]  name-coding-lib
-    └── [4.0K]  1.0-SNAPSHOT 
-        └── [ 11K]  name-coding-lib-1.0-SNAPSHOT.jar //library that can be re-used by other applications
-
-
-```
-
-* Alternatively, use CI/CD Build
-    * Running on https://codefresh.io/
-    * Can be configured to deliver jars to artifacts if needed
-![algorithm](docs/codefresh-capture.png)
-
-### Usage
-**Syntax**
-```
-usage: java -jar <cli-jar-name>.jar
-    --file <arg>   fully qualified path to the names input file
-```
-
-**Example**
-```
-$ java -jar name-coding-cli-1.0-SNAPSHOT-jar-with-dependencies.jar --file /home/vinayb/Downloads/sample-large.txt 
-Input file: /home/vinayb/Downloads/sample-large.txt
-Total score: 871198282
-```
-
-
 
 ## Detailed Problem Statement
 _Create a command line utility that will compute a score for a list of first names.
@@ -118,6 +80,7 @@ For n records
 * Maven assembly plugin
 
 ## Possible Enhancements:
+* Containerize the CLI application so the executing environment does need to provide a JRE
 * Parallelize the final ranking by 
   * iterating the sorted list in order
   * determining the tuple (order, word) and processing these in parallel
