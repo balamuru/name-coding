@@ -1,14 +1,17 @@
 
 # name-coding
-
+[![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/balamuru/NameCodingPipeline%2Fname-coding?type=cf-1)]( https%3A%2F%2Fg.codefresh.io%2Fpublic%2Faccounts%2Fbalamuru%2Fpipelines%2Fnew%2F5ed76e90ccb58a9eeea8392c)
 ## QuickStart
 See [here](docs/quickstart.md) for instructions on building and execution
 
-## Build Status 
-[![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/balamuru/NameCodingPipeline%2Fname-coding?type=cf-1)]( https%3A%2F%2Fg.codefresh.io%2Fpublic%2Faccounts%2Fbalamuru%2Fpipelines%2Fnew%2F5ed76e90ccb58a9eeea8392c)
-
+## Sample output
+```
+$ java -jar name-coding-cli-1.0-SNAPSHOT-jar-with-dependencies.jar --file /home/vinayb/Downloads/sample-large.txt 
+Input file: /home/vinayb/Downloads/sample-large.txt
+Total score: 871198282
+```
 ## Problem Summary
-The name-coding-cli application accepts a list of names and outputs an aggregated score 
+Design a comman line application that accepts a list of names and outputs an aggregated score 
 The underlying name-coding-lib is designed to be reused
 
 ## Detailed Problem Statement
@@ -78,14 +81,6 @@ For n records
 * SLF4J
 * Spring core
 * Maven assembly plugin
-
-## Sample output
-```
-$ java -jar name-coding-cli-1.0-SNAPSHOT-jar-with-dependencies.jar --file /home/vinayb/Downloads/sample-large.txt 
-Input file: /home/vinayb/Downloads/sample-large.txt
-Total score: 871198282
-```
-
 
 ## Possible Future Enhancements:
 * Containerize the CLI application so the executing environment does need to provide a JRE
