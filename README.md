@@ -4,14 +4,14 @@
 ## QuickStart
 See [here](docs/quickstart.md) for instructions on building and execution
 
-## Sample output
+## Usage / Sample output
 ```
 $ java -jar name-coding-cli-1.0-SNAPSHOT-jar-with-dependencies.jar --file /home/vinayb/Downloads/sample-large.txt 
 Input file: /home/vinayb/Downloads/sample-large.txt
 Total score: 871198282
 ```
 ## Problem Summary
-Design a comman line application that accepts a list of names and outputs an aggregated score 
+Design a command line application that accepts a list of names and outputs an aggregated score 
 The underlying name-coding-lib is designed to be reused
 
 ## Detailed Problem Statement
