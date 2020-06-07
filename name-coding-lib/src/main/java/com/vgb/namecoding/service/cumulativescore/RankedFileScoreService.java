@@ -7,7 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.URL;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 /**
  * This implementation of @{@link FileScoreService} works by multiplying the rank of
@@ -40,24 +42,29 @@ public class RankedFileScoreService implements FileScoreService {
         final AtomicLong totalScore = new AtomicLong(0);
         //1. read data
         //2. sort data
-
         logger.info("Launching computation");
-        sortingService.sort(readerService.read(url))
-                .iterator()
-                .forEachRemaining(name -> {
-            {
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Going to score word: " + name);
-                }
-
-                //3. for each item of the sorted dataset, .. calculate its sorted score
-                final long sortedNameScore = index.incrementAndGet() * nameScoringService.score(name);
-                //accumulate the total score
-                totalScore.addAndGet(sortedNameScore);
-           }
-        });
-
-        return totalScore.get();
+        final AtomicInteger idx = new AtomicInteger(0);
+        return sortingService.sort(readerService.read(url)).stream()
+                .map(s -> new SortedNameData(s, idx.incrementAndGet()))
+                .map(sortedNameData -> Long.valueOf(sortedNameData.getRank() * nameScoringService.score(sortedNameData.getWord())))
+                .collect(Collectors.summingLong(Long::longValue));
     }
 
+    private static  class SortedNameData {
+        private final String word;
+        private final int rank;
+
+        public SortedNameData(String word, int rank) {
+            this.word = word;
+            this.rank = rank;
+        }
+
+        public String getWord() {
+            return word;
+        }
+
+        public int getRank() {
+            return rank;
+        }
+    }
 }
