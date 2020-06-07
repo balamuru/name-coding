@@ -40,6 +40,7 @@ public class RankedFileScoreService implements FileScoreService {
     public long compute(URL url) throws Exception {
         final AtomicLong index = new AtomicLong(0);
         final AtomicLong totalScore = new AtomicLong(0);
+        //perform the following in a single expression
         //1. read data
         //2. sort data
         logger.info("Launching computation");
